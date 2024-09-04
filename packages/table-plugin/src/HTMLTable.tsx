@@ -1,5 +1,4 @@
 import React, { useMemo, useRef, useLayoutEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import {
   Platform,
   StyleSheet,
@@ -49,30 +48,6 @@ function animateNextFrames(duration?: number) {
     }
   });
 }
-
-const tableStylePropTypeSpec: Record<keyof TableStyleSpecs, any> = {
-  linkColor: PropTypes.string,
-  fontFamily: PropTypes.string,
-  fontSizePx: PropTypes.number,
-  tdBorderColor: PropTypes.string,
-  thBorderColor: PropTypes.string,
-  trOddBackground: PropTypes.string,
-  trOddColor: PropTypes.string,
-  trEvenBackground: PropTypes.string,
-  trEvenColor: PropTypes.string,
-  rowsBorderWidthPx: PropTypes.number,
-  columnsBorderWidthPx: PropTypes.number,
-  outerBorderColor: PropTypes.string,
-  outerBorderWidthPx: PropTypes.number,
-  cellPaddingEm: PropTypes.number,
-  fitContainerWidth: PropTypes.bool,
-  fitContainerHeight: PropTypes.bool,
-  selectableText: PropTypes.bool,
-  thEvenBackground: PropTypes.string,
-  thEvenColor: PropTypes.string,
-  thOddBackground: PropTypes.string,
-  thOddColor: PropTypes.string
-};
 
 function findHeight({
   computeContainerHeight,
@@ -309,28 +284,3 @@ export const HTMLTable = function HTMLTable({
     </Animated.View>
   );
 };
-
-const propTypes: Record<keyof HTMLTableProps, any> = {
-  animationDuration: PropTypes.number.isRequired,
-  animationType: PropTypes.oneOf(['none', 'animated', 'layout']),
-  computeContainerHeight: PropTypes.func.isRequired,
-  computeHeuristicContentHeight: PropTypes.func.isRequired,
-  html: PropTypes.string.isRequired,
-  numOfChars: PropTypes.number.isRequired,
-  numOfColumns: PropTypes.number.isRequired,
-  numOfRows: PropTypes.number.isRequired,
-  WebView: PropTypes.elementType.isRequired,
-  onLinkPress: PropTypes.func,
-  style: PropTypes.any,
-  tableStyleSpecs: PropTypes.shape(tableStylePropTypeSpec),
-  cssRules: PropTypes.string,
-  webViewProps: PropTypes.object,
-  sourceBaseUrl: PropTypes.string,
-  maxScale: PropTypes.number.isRequired,
-  htmlAttribs: PropTypes.any,
-  displayMode: PropTypes.oneOf(['flex', 'expand'])
-};
-
-Object.defineProperty(HTMLTable, 'propTypes', {
-  value: propTypes
-});
