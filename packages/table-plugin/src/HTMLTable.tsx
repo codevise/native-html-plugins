@@ -259,15 +259,15 @@ export const HTMLTable = function HTMLTable({
   cssRules,
   html,
   sourceBaseUrl,
-  animationType,
+  animationType = 'animated',
   computeHeuristicContentHeight = defaultComputeHeuristicContentHeight,
   computeContainerHeight = defaultComputeContainerHeight,
   webViewProps: userWebViewProps,
   style,
   onLinkPress,
-  animationDuration,
+  animationDuration = DEFAULT_TRANSITION_DURATION,
   htmlAttribs,
-  maxScale,
+  maxScale = 1,
   ...stats
 }: HTMLTableProps) {
   const onDOMLinkPress = useCallback(
@@ -331,18 +331,6 @@ const propTypes: Record<keyof HTMLTableProps, any> = {
   displayMode: PropTypes.oneOf(['flex', 'expand'])
 };
 
-const defaultProps = {
-  animationDuration: DEFAULT_TRANSITION_DURATION,
-  animationType: 'animated',
-  computeHeuristicContentHeight: defaultComputeHeuristicContentHeight,
-  computeContainerHeight: defaultComputeContainerHeight,
-  maxScale: 1
-};
-
 Object.defineProperty(HTMLTable, 'propTypes', {
   value: propTypes
-});
-
-Object.defineProperty(HTMLTable, 'defaultProps', {
-  value: defaultProps
 });
