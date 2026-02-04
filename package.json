@@ -53,8 +53,10 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "workspaces": [
-    "packages/*",
-    "example"
-  ]
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "example"
+    ]
+  }
 }
